@@ -1,11 +1,11 @@
 import { ReactNode, useState } from "react";
-import { Activity, BarChart3, Users, ChevronDown } from "lucide-react";
+import { Activity, BarChart3, Users, ChevronDown, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface DashboardLayoutProps {
   children: ReactNode;
-  activeTab: "hospital" | "patient";
-  onTabChange: (tab: "hospital" | "patient") => void;
+  activeTab: "hospital" | "patient" | "regional";
+  onTabChange: (tab: "hospital" | "patient" | "regional") => void;
 }
 
 export const DashboardLayout = ({
@@ -18,6 +18,7 @@ export const DashboardLayout = ({
   const tabs = [
     { id: "hospital" as const, label: "Hospital Costs", icon: BarChart3 },
     { id: "patient" as const, label: "Patient Analytics", icon: Users },
+    { id: "regional" as const, label: "Regional Insights", icon: MapPin },
   ];
 
   const activeTabData = tabs.find((t) => t.id === activeTab);
